@@ -28,19 +28,13 @@ public class SimpleEmailService {
         }
     }
     private SimpleMailMessage createMailMessage(final Mail mail) {
+        SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
+        simpleMailMessage.setTo(mail.getMailTo());
+        simpleMailMessage.setSubject(mail.getSubject());
+        simpleMailMessage.setText(mail.getMessage());
         if (mail.getToCc() != null) {
-            SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
-            simpleMailMessage.setTo(mail.getMailTo());
-            simpleMailMessage.setSubject(mail.getSubject());
-            simpleMailMessage.setText(mail.getMessage());
             simpleMailMessage.setCc(mail.getToCc());
-            return simpleMailMessage;
-        } else {
-            SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
-            simpleMailMessage.setTo(mail.getMailTo());
-            simpleMailMessage.setSubject(mail.getSubject());
-            simpleMailMessage.setText(mail.getMessage());
-            return simpleMailMessage;
         }
+        return simpleMailMessage;
     }
 }

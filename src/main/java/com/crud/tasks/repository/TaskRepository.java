@@ -16,4 +16,6 @@ public interface TaskRepository extends CrudRepository<Task, Long> {
     Optional<Task> findById(Long Id);
     @Override
     void deleteById(Long Id);
+    @Override
+    long count();
 }

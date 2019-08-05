@@ -32,7 +32,7 @@ public class TaskControllerTest {
     private TaskController taskController;
 
     @Test
-    public void shouldGetTasks() throws Exception {
+    public void shouldGetTasksEmpty() throws Exception {
         //Given
         List<TaskDto>list = new ArrayList<>();
 
@@ -42,6 +42,20 @@ public class TaskControllerTest {
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().is(200))
                 .andExpect(jsonPath("$",hasSize(0)));
+    }
+    @Test
+    public void shouldGetTasksFilled() throws Exception {
+        //Given
+        TaskDto taskDto = new TaskDto(1L,"title", "test");
+        List<TaskDto>list = new ArrayList<>();
+        list.add(taskDto);
+
+        when(taskController.getTasks()).thenReturn(list);
+        //When & Then
+        mockMvc.perform(get("/v1/task/getTasks")
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().is(200))
+                .andExpect(jsonPath("$",hasSize(1)));
     }
     @Test
     public void shouldGetTask() throws Exception {

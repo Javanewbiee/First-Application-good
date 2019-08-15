@@ -39,9 +39,9 @@ public class TaskControllerTest {
         when(taskController.getTasks()).thenReturn(list);
         //When & Then
         mockMvc.perform(get("/v1/task/getTasks")
-                .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().is(200))
-                .andExpect(jsonPath("$",hasSize(0)));
+               .contentType(MediaType.APPLICATION_JSON))
+               .andExpect(status().is(200))
+               .andExpect(jsonPath("$",hasSize(0)));
     }
     @Test
     public void shouldGetTasksFilled() throws Exception {

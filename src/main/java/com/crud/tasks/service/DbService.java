@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
 public class DbService {
@@ -19,9 +18,6 @@ public class DbService {
         return repository.findAll();
     }
 
-    public Task getTaskById(final Long Id) {
-        return repository.findById(Id).get();
-    }
     public Task saveTask(final Task task) {
         return repository.save(task);
     }

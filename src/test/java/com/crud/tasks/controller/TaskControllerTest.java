@@ -31,7 +31,7 @@ public class TaskControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
-    @MockBean
+    @Autowired
     private TaskController taskController;
     @MockBean
     private TaskMapper taskMapper;

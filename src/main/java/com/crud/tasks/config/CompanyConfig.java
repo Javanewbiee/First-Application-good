@@ -8,10 +8,10 @@ import org.springframework.stereotype.Component;
 @Component
 public class CompanyConfig {
 
-    @Value("$(info.app.company.name)")
+    @Value("${info.app.company.name}")
     private String companyName;
-    @Value("$(info.app.company.email)")
+    @Value("${info.app.company.email}")
     private String companyMail;
-    @Value("$(info.app.comapny.phone)")
+    @Value("${info.app.comapny.phone}")
     private String companyPhone;
 }
